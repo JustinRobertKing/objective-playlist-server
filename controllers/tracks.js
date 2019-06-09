@@ -18,4 +18,27 @@ router.post('/', (req, res) => {
 	})
 })
 
+router.get('/', (req, res) => {
+	db.Track.find()
+	.then(response => {
+		console.log('Alllllllll: ', response)
+		res.send(response)
+	})
+	.catch((error) => {
+		console.log('error', error)
+	})
+})
+
+router.post('/find', (req, res) => {
+	db.Track.find({
+		artist: req.body.artist,
+		title: req.body.title
+	})
+	.then(response => {
+		res.send(response)
+	})
+	.catch((error) => {
+		console.log('error', error)
+	})
+})
 module.exports = router
