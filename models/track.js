@@ -15,8 +15,11 @@ let analyticsSchema = new mongoose.Schema({
 })
 
 let trackSchema = new mongoose.Schema({
+	trackId: String,
+	imageURL: String,
 	artist: String,
 	title: String,
+	URI: String,
 	analytics: analyticsSchema
 })
 
